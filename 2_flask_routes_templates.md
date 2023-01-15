@@ -7,6 +7,7 @@
 - https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates
 - https://flask.palletsprojects.com/en/2.2.x/quickstart/#accessing-request-data
 - https://www.geeksforgeeks.org/retrieving-html-from-data-using-flask/
+- https://jinja.palletsprojects.com/en/3.1.x/templates/
 
 ### Learning Outcomes
 
@@ -97,3 +98,69 @@ def login():
 ```
 
 For more details see https://www.tutorialspoint.com/flask/flask_request_object.htm
+
+### Templates
+
+Python is not convenient for generating significant HTML content, so Flask supports 
+Jinga2 templates.
+
+A Jinja template is simply a text file. The file can have any extension.
+
+A template contains **variables** and/or **expressions**, which Flask replaces with values when the template is rendered; and tags for basic logic control. 
+
+Jinja uses several kinds of delimiters to
+
+- {% ... %} for programmatic Statements
+- {{ ... }} for Expressions to evaluate & output 
+- {# ... #} for Comments not included in the template output
+
+For example:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Webpage</title>
+</head>
+<body>
+    {# this is a comment #}
+
+    {% if student_name %}
+        <h1>Course Schedule for {{ student_name }}</h1>
+    {% else %}
+        <h1>Course Schedule Page</h1>
+    {% endif %}
+    
+    <ul>
+    {% for course in courses %}
+        <li><a href="/courses/{{ course.id }}">{{ course.name }}</a></li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>
+```
+
+Flask routes can use a template to `render` HTML output. 
+
+Templates must be in the `/templates` directory of the Flask project.
+
+Flask can pass python data variables to `render_template` as parameters for use in output generation.
+
+```python
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/schedule/<student_name>')
+def schedule(student_name):
+courses = [
+  {"id": 123, "name": "IT 121"},
+  {"id": 456, "name": "IT 276"},
+  {"id": 789, "name": "MATH 140"},
+]
+return render_template('schedule.html', student_name=student_name, courses=courses)
+```
+
+

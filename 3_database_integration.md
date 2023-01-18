@@ -45,9 +45,9 @@ class Student(db.Model):
    def __repr__(self):
     return '<Student %r>' % self.name
 
-    # create / use the database
-    with app.app_context():
-      db.create_all()
+# create / use the database
+with app.app_context():
+  db.create_all()
 ```
 
 You can populate the database manually from an interactive Python shell like so (assuming your app is in `main.py`):

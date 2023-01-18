@@ -45,21 +45,30 @@ class Student(db.Model):
    def __repr__(self):
     return '<Student %r>' % self.name
 
-# create / use the database
-db.create_all()
+    # create / use the database
+    with app.app_context():
+      db.create_all()
 ```
 
-You can populate the database manually from an interactive Python shell like so:
+You can populate the database manually from an interactive Python shell like so (assuming your app is in `main.py`):
 
 ```python
->>> from yourapplication import db
+~/$ flask --app main shell
+>>> from main import db, Student
 >>> db.create_all()
-
->>> from yourapplication import Student
 >>> student1 = Student(name='Neil deGrasse Tyson', email='neil@harvard.edu', major='astrophysics')
 >>> student2 = Student(name='Nikole Hannah Jones', email='nikole@howard.edu', major='journalism')
-
 >>> db.session.add(student1)
 >>> db.session.add(student2)
 >>> db.session.commit()
+```
+
+Then your Flask app can retrieve db records like so:
+
+```python
+  # retrieve all db records
+  students = Student.query.all()
+
+  # retrieve a single record
+  student = Student.query.filter_by(id=2).first()
 ```

@@ -12,7 +12,7 @@
 - Django app structure
 - Django urls & views
 
-### Whaat is Django
+### What is Django
 
 Django is a Python framework designed for building complex, data-driven web sites. It comes with built-in features like authentication, database integration (ORM), templating, administrative interface and much more.
 
@@ -40,3 +40,36 @@ Django templates are usually located in a folder named **templates**.
 
 Django maps urls (aka routes) to views in a file called **urls.py**.
 
+### Installing Django
+
+As with other Python projects, it's good practice to use a **virtual** environment if developing on your local pc.
+
+Once you have the virtual environment activated, you can install Django like so:
+
+Windows:
+```commandline
+(env) C:\Users\Your Name>py -m pip install Django
+```
+
+Unix/MacOS:
+```commandline
+(env) ... $ python -m pip install Django
+```
+
+### Creating a Django Project
+
+All files for a Django project are contained within a single folder. You can create the folder and files by run this command (be sure to replace `my_project_name` with the appropriate name:
+
+```commandline
+django-admin startproject my_project_name
+```
+
+### Running the Django server
+
+Navigate to the project folder you created in the previous step and run this command:
+
+```commandline
+py manage.py runserver
+```
+
+This will start the Django `server` (on port 8000 by default), which you can access via a browser at http:// 127.0.0.1:8000

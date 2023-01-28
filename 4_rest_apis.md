@@ -97,12 +97,11 @@ def api_data():
     try:
         result = requests.get(url)
         # since result is already JSON, it shouldn't be serialized again
-        response = app.response_class(
+        return app.response_class(
             response=result.text,
             status=200,
             mimetype='application/json'
         )
-        return response
     except:
         return jsonify({"error": f"Unable to get {url}"})
 

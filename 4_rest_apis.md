@@ -37,17 +37,8 @@ def courses():
 app.run(host='0.0.0.0', port=81)
 ```
 
-API routes can receive and store data as well:
 
-```python
-@app.post('/courses')
-def add_course():
-    # normally we would validate the submission before adding to our list
-    data.update(request.get_json())
-    return '', 204
-```
-
-Returning Python objects and database query results as JSON data can be more complicated. 
+Returning Python objects or database query results as JSON data can be more complicated. 
 
 Objects need to be **serialized** (converted to structured text), which usually requires you specify a **schema** for how each field in the object should be converted.
 
@@ -80,6 +71,32 @@ def api_students():
 ```
 
 Python applicatoins typically use a serializer library such as [marshmallow](https://marshmallow.readthedocs.io/en/stable/) for more complex objects. 
+
+API routes can receive and store data as well:
+
+```python
+@app.post('/api/course')
+def add_course():
+    # normally we would validate the submission before adding to our list
+    data.update(request.get_json())
+    return '', 204
+
+@app.post('/api/student')
+def add_student():
+    # normally we would validate the submission before adding to our list
+    data = request.get_json()
+    try:
+        student = Student(name=data['name'], city=data['city'])
+        db.session.add(student)
+        db.session.commit()
+        return jsonify({"status": "success"})
+    except Exception:
+        return app.response_class(response={"status": "failure"},
+                                  status=500,
+                                  mimetype='application/json')
+
+```
+
 
 ### Server-side API Requests
 

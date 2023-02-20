@@ -10,6 +10,7 @@
 - Database definition in Django
 - Django Object Relational Mapping
 - Database change management
+- Basic DB read/write operations
 
 
 ### Overview
@@ -48,10 +49,10 @@ class Student(models.Model):
     year = models.CharField(max_length=25, choices=YEAR_IN_SCHOOL_CHOICES, )
 ```
 
-- `Student` corresponds to the `<appname_student` DB table
+- `Student` corresponds to the `appname_student` DB table
 - Each data type corresponds to a supported DB data type
 - Field definition can included constraints such as uniqueness, length, default & allowed values, and whether empty values are allowed
-- By dfault Django creates a unique, auto-incrementing `id` field unless you specify a `primary key` field
+- By default Django creates a unique, auto-incrementing `id` field unless you specify a `primary key` field
 
 See full details of Django model fields at https://docs.djangoproject.com/en/4.1/ref/models/fields/
 
@@ -59,7 +60,7 @@ See full details of Django model fields at https://docs.djangoproject.com/en/4.1
 
 Django manages database structure updates through `migrations` so you can easily track & revert changes if needed.
 
-Once models are defined or updated, you will need to generate a `migration` like so:
+As models are defined or updated, you will need to generate a `migration` like so:
 
 ```python
     python manage.py makemigrations <appname>
@@ -116,19 +117,4 @@ Before performing any operations, you need to import the model:
     dob2 = datetime.date(2002, 09, 19)
     # define & save student in one step
     student2 = Student.objects.create(name="Alice White", date_of_birth=dob, graduation=2025, year="SO")
-```
-
-#### DB Read Operations
-
-Django interacts with tables through the `objects` attribute of a model. Read operations typically use `get()` for single records, `all()` for all records, or `filter` for records that meet a criteria.
-
-```python
-    # get all records. returns a collection
-    students = Student.objects.all()
-    
-    # get records that meet a condition
-    sophomores = Student.objects.filter(year="SO")
-
-    # get a single record
-    student = Student.objects.get("name=Darren Black")
 ```

@@ -1,4 +1,4 @@
-## Django Queries
+## Django Admin
 
 ### Reading
 

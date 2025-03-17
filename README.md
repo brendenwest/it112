@@ -3,13 +3,12 @@ IT 112 - Web Programming W/ Python
 
 **Class Details**
 
-- Location: Virtual
-- Time: Tues 5:00 - 6:15 pm
-- Dates: Jan 3 - Mar. 22, 2023
+- Location: Hybrid, IB3404
+- Time: Wed 6:00 - 8:40 pm
+- Dates: Apr 7 - June 23, 2025
 - Instructor: Brenden West
 - Email: brenden.west@seattlecolleges.edu
 - Credits: 5
-- ITC Tutoring Slack - https://tinyurl.com/saea74l
 
 ### Summary
 
@@ -19,7 +18,7 @@ This course will cover modern Python technologies and techniques for *backend* w
 
 ### Requirements
 
-Students should have experience with basic Python sytnax, web development skills, and database design/querying, via IT 111 or comparable experience, including:
+Students should have experience with basic Python syntax, web development skills, and database design/querying, via IT 111 or comparable experience, including:
 
 - HTML and CSS
 - HTTP request/response methods
@@ -32,8 +31,6 @@ Students will perform extensive hands-on development throughout the course and w
 - A working internet connection
 - A syntax-highlighting text editor
 - A https://github.com account
-
-**Note** - https://replit.com/ provides free browser-based development environments.
 
 This course will use **Web Development with Django** as a textbook, as well as supplementary online materials.
 

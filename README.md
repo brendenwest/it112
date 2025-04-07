@@ -18,10 +18,11 @@ This course will cover modern Python technologies and techniques for *backend* w
 
 ### Requirements
 
-Students should have experience with basic Python syntax, web development skills, and database design/querying, via IT 111 or comparable experience, including:
+Students should have some familiarity with the following:
 
 - HTML and CSS
 - HTTP request/response methods
+- Command-line operations
 - SQL and relational database terminology
 - Python language syntax
 
@@ -29,26 +30,27 @@ Students will perform extensive hands-on development throughout the course and w
 
 - A computer onto which they can install software,
 - A working internet connection
-- A syntax-highlighting text editor
+- A syntax-highlighting text editor (e.g. IntelliJ or VSCode)
 - A https://github.com account
+- A https://datacamp.com account
 
-This course will use **Web Development with Django** as a textbook, as well as supplementary online materials.
+This course will use **Web Development with Django, 2nd**, as well as supplementary online materials.
 
-Students can access this textbook free online through https://libguides.seattlecentral.edu/az.php?a=o using these steps:
+Students can access this text free online through  https://www.oreilly.com/library-access/?orpq using these steps:
 
-- Select “O’Reilly for Education”
 - In the ‘Select institution’ drop-down menu, select “not listed”
 - Create new account (first time) using your *@seattlecolleges.edu* email address.
 
 ### Class Structure and Topics
 
-Course instruction will be fully online with Zoom conference at scheduled class times to review new material, answer questions, and resolve any issues with completing the homework.
+Course instruction will be on-campus at scheduled class times to review new material, answer questions, and resolve any issues with completing the homework.
 
-Throughout the week, students can reach me directly in the SCC tutoring Slack team with questions.
+Throughout the week, students can reach me directly via Canvas or email with questions.
 
-Each week, we'll cover a new topic, building on the previous week's work. We will cover the following topics, although the order and precise list is subject to revision:
+Each week, we'll cover a new topic, building on the previous week's work. This course covers the following topics, although the order and precise list is subject to revision:
 
-- Python web franeworks overview - e.g. Flask, Django, aiohttp, etc.
+- Python web frameworks overview - e.g. Flask, Django, aiohttp, etc.
+- Python package management
 - Web application structures - routes, views, templates, and static files
 - UI templating 
 - REST APIs

@@ -22,7 +22,7 @@ Students should have some familiarity with the following:
 
 - HTML and CSS
 - HTTP request/response methods
-- Command-line operations
+- Linux command-line operations
 - SQL and relational database terminology
 - Python language syntax
 
@@ -49,22 +49,57 @@ Throughout the week, students can reach me directly via Canvas or email with que
 
 Each week, we'll cover a new topic, building on the previous week's work. This course covers the following topics, although the order and precise list is subject to revision:
 
-- Python web frameworks overview - e.g. Flask, Django, aiohttp, etc.
+- Python language syntax & command-line operations
+- git source control
 - Python package management
-- Web application structures - routes, views, templates, and static files
-- UI templating 
+- Python web frameworks overview - e.g. Flask, Django, aiohttp, etc.
+- Web application structures - routes, views, and static files
+- UI templates
 - REST APIs
 - Database integration
-- Using Docker for development
+- Using Docker containers
 - Unit testing
 - Asynchronous Python operations
 - Deploying to a public web server
 
 Each Monday, you'll be given an assignment to test what you've picked up on that week's topic. Assignments are due by the end-of-day Sunday of that week. Assignments will build on each other toward a completed final project.
 
-Most of your grade will come from turning in assignments on time and showing that you tried to solve it using your own original work. Your homework should be completely your own: plagiarism and late submissions may incur a grade penalty.
+-  There is a **10% penalty for late assignments up to 2 weeks late**
+-  Assignments turned in later than 2+ weeks **will not be accepted** nor graded
+-  At the instructor's sole discretion, and with prior approval from the instructor, an assignment may be turned in late under mitigating circumstances such as a medical emergency or work travel.
 
-Homework assignments should be submitted in Canvas as links to your github.com repository. You should use a **single repository and branch** throughout the course, with clear a 'commit' message for each assignment completion.
+Most of your grade will come from turning in assignments on time and showing that you tried to solve it using your own original work. Plagiarism (including work produced by generative AI) may incur a grade penalty.
+
+Homework assignments should be submitted in Canvas, typically as links to your github.com repository. You should use a **single github.com repository and branch** throughout the course, with clear a 'commit' message for each assignment completion.
+
+### Grading
+
+Final grades are on a 4-point scale and determined based the percentage of total points achieved.
+
+| Grade  | Score      |
+|--------|------------|
+| 4.0    | \>= 98.75% |
+| 3.9    | \>= 96.25% |
+| 3.8    | \>= 93.75% |
+| 3.7    | \>= 91.25% |
+| 3.6    | \>= 88.75% |
+| 3.5    | \>= 86.25% |
+| 3.4    | \>= 83.75% |
+| 3.3    | \>= 81.25% |
+| 3.2    | \>= 78.75% |
+| 3.1    | \>= 76.25% |
+| 3.0    | \>= 73.75% |
+| 2.9    | \>= 71.25% |
+| 2.8    | \>= 68.75% |
+| 2.7    | \>= 66.25% |
+| 2.6    | \>= 63.75% |
+| 2.5    | \>= 61.25% |
+| 2.4    | \>= 58.75% |
+| 2.3    | \>= 56.25% |
+| 2.2    | \>= 53.75% |
+| 2.1    | \>= 51.25% |
+| <= 2.0 | < 51.25 %  |
+| <= 1.0 | < 26.25 %  |
 
 ### Reference
 

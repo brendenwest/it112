@@ -16,6 +16,14 @@ Python is increasingly popular for powering data-driven services and web applica
 
 This course will cover modern Python technologies and techniques for *backend* web development with a focus on data-driven sites. By quarter's end, students have built a fully-functional client-server application they can showcase for job applications.
 
+### Learning Outcomes
+- Python development practices
+- Python web frameworks & application architecture
+- Unit & integration testing
+- REST APIs
+- Database integration & ORMs
+- Application containerization
+
 ### Requirements
 
 Students should have some familiarity with the following:

@@ -3,6 +3,7 @@
 
 ### Reading
 
+- https://www.w3schools.com/tags/ref_httpmethods.asp
 - https://flask.palletsprojects.com/en/2.2.x/quickstart/#routing
 - https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates
 - https://flask.palletsprojects.com/en/2.2.x/quickstart/#accessing-request-data
@@ -11,9 +12,10 @@
 
 ### Learning Outcomes
 
-- Handling requests with parameters
+- Basics of Flask routes
+- Handling HTTP requests with parameters
 - Handling POST requests
-- Rendering complex output with templates
+- Rendering HTML output with templates
 
 ### Routes
 
@@ -49,6 +51,7 @@ By default, Flask routes handle GET requests, but you can specify exactly which 
 ```python
 from flask import request
 
+# this route handles GET and POST requests
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -57,7 +60,7 @@ def login():
         return "Show an HTML page"
 ```
 
-You can also specify the single-method route like so:
+You can also specify a single-method route like so:
 
 ```python
 @app.get('/login')
@@ -101,14 +104,13 @@ For more details see https://www.tutorialspoint.com/flask/flask_request_object.h
 
 ### Templates
 
-Python is not convenient for generating significant HTML content, so Flask supports 
-Jinga2 templates.
+Generally, it's not desirable to mix large amounts of HTML content with Python code, so Flask supports `templates` that mix dynamic data with static HTML at run time. Flask uses `Jinja2` templates by default.
 
-A Jinja template is simply a text file. The file can have any extension.
+A Jinja template is simply a text file with any extension.
 
-A template contains **variables** and/or **expressions**, which Flask replaces with values when the template is rendered; and tags for basic logic control. 
+Jinja template syntax is not a full programming language, but supports `variables` and/or `expressions`, which Flask replaces with values when the template is rendered. A template can also contain `tags` for basic logic control. 
 
-Jinja uses several kinds of delimiters to
+Jinja uses several kinds of delimiters to indicate where data should be replaced:
 
 - {% ... %} for programmatic Statements
 - {{ ... }} for Expressions to evaluate & output 

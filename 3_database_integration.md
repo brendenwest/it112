@@ -2,6 +2,7 @@
 
 ### Reading
 
+- https://www.w3schools.com/sql/default.asp
 - https://www.tutorialspoint.com/flask/flask_sqlite.htm
 - https://www.tutorialspoint.com/flask/flask_sqlalchemy.htm
 - https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/
@@ -9,6 +10,7 @@
 
 ### Learning Outcomes
 
+- Refresh on SQL & relational databases
 - what is an ORM?
 - Database operations with Python & SQLAlchemy
 - Database operations with SQLAlchemy in a Flask application

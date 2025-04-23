@@ -17,13 +17,28 @@
 
 ### Overview
 
-Server applications often need to store and retrieve persistent data. Relational databases are a primary choice for this purpose.
+Server applications often need to store and retrieve persistent data. Relational databases are a primary choice for this but applications can also use `document` (aka schema-less or NoSQL) databases.
 
-Python Developers can choose from a range of database systems (e.g. SQLite, PostgreSQL, MySQL, etc) and Object Relational Mapper (ORM) libraries.
+Python application developers can choose from a range of relational database systems (e.g. SQLite, PostgreSQL, MySQL, etc).
 
-An `ORM` (Object Relational Mapper) maps program classes (or models) to relational database tables. It allows a program to implement database CRUD operations without raw SQL statements.
+### Object Relational Mapper (ORM)
 
-SQLAlchemy is a mature & popular ORM choice for python-based applications.
+Python web applications can interface with a relational database using raw SQL (Structured Query Language), but often use an `ORM` that maps application classes (models) to relational database tables. ORMs can also simplify database queries and abstract syntax differences between database systems.
+
+SQLAlchemy is a mature & popular ORM library for Python-based applications. 
+
+First, you'll need to install SQLAlchemy in your application environment:
+
+```commandline
+pip install -U Flask-SQLAlchemy 
+```
+
+Then define one or more data models. A data model is a Python class with attributes that correspond to db table columns. Each attribute is defined with a data type (e.g. string, integer, date, etc.) and column settings such as:
+
+- whether a column is the `primary key` for the table
+- whether values should be unique
+- whether the column can have `null` or blank values
+- default value for the column
 
 ```python
 from flask_sqlalchemy import SQLAlchemy

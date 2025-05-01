@@ -14,7 +14,33 @@
 
 ### What are APIs?
 
-REST stands for Representational State Transfer and is an architectural style used in modern web development. REST apis use HTTP request/response constraints and typically return structured data for machine-to-machine communication. API response data can be in a variety of formats - e.g. XML, JSON, CSV, etc.
+Application programming interfaces (APIs) are well-defined interfaces for two applications to communicate with each other. 
+
+APIs are sometimes referred to as a `contract` where the `server` exposes specific methods a `client` can invoke to perform specific actions or receive certain information. The client doesn't know internal details of how the server implements the API.
+
+Software systems can have many types of APIs. Web applications are most often concerned with `REST` (Representational State Transfer) APIs that allow a web or mobile client to interface with `backend` applications.
+
+### REST APIs
+
+REST apis use `HTTP` request/response methods and typically return structured data for machine-to-machine communication. API response data can be in a variety of formats - e.g. XML, JSON, CSV, etc.
+
+Some key HTTP methods:
+
+- GET - retrieve data 
+- POST - submit data
+- PUT - (informational) update existing data
+- PATCH - (informational) partially update data
+- DEL - (informational) delete some data
+
+API routes can be designed to accept dynamic parameters as part of the url or as query parameters:
+
+- /api/books/123
+- /api/books?id=123
+
+Often, developers will define api `versions` to ensure existing consumers are unaffected when a new version introduces changes to the `contract`. For example:
+
+- /api/v1/books
+- /api/v2/books
 
 ### Flask API Routes
 

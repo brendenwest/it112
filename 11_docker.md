@@ -39,3 +39,28 @@ The Docker application has several components:
 - **client** - applications such as a command-line interface (CLI) that enable interaction with a Docker server to manage containers
 
 Docker (the company) also hosts a registry of pre-built `official` and community images that developers can use as a starting point for their images.
+
+### Python requirements.txt files
+
+`requirements.txt` is a file listing packages or libraries needed by a Python application that `pip` can read to install dependencies.
+
+The file lists each `dependency` and a `version specifier` that can be exact or a logical rule. For example:
+
+```commandline
+Flask == 3.1.0
+Flask-SQLAlchemy >= 3.0.0
+```
+
+It's not necessary to list every package that might get installed, since some packages may specify their own dependencies. But it's common to list all dependencies to prevent unplanned changes. 
+
+For example, installing Flask will also install `Jinja2`, but you might want to enforce a specific version like this:
+
+```commandline
+Flask == 3.1.0
+Jinja2 == 3.1.6
+Flask-SQLAlchemy >= 3.0.0
+```
+
+See the full set of [requirements specifiers here](https://pip.pypa.io/en/stable/reference/requirement-specifiers/)
+
+### Dockerizing a Python app

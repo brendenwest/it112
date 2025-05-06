@@ -40,6 +40,23 @@ The Docker application has several components:
 
 Docker (the company) also hosts a registry of pre-built `official` and community images that developers can use as a starting point for their images.
 
+### Docker CLI
+
+The Docker CLI allows one to manage docker images and containers via a command line interface (e.g. via Terminal or PowerShell).
+
+Typical command structure is:
+
+`docker <COMMAND> <OPTIONS>`
+
+A few common commands are: 
+
+- **build** - builds a container from a specified image
+- **compose** - run multi-container applications specified in a `docker-composer.yml` file
+- **exec** - executes a command in a running container
+- **run** - runs a command in the specified container
+
+[Docker CLI](https://docs.docker.com/reference/cli/docker/)
+
 ### Python requirements.txt files
 
 `requirements.txt` is a file listing packages or libraries needed by a Python application that `pip` can read to install dependencies.
@@ -64,3 +81,22 @@ Flask-SQLAlchemy >= 3.0.0
 See the full set of [requirements specifiers here](https://pip.pypa.io/en/stable/reference/requirement-specifiers/)
 
 ### Dockerizing a Python app
+
+Docker images are defined in a `Dockerfile` with commands the specify a `base` image and any modifications. For example:
+
+```commandline
+FROM python:3.12-slim
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r requirements.txt
+WORKDIR /app
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+```
+
+The above commands:
+- pulls an official Python 3.12 base image
+- copies a requirements.txt file into the image
+- installs python dependencies specified in requirements.txt into the image
+- defines a command to run when a container is created from the image
+
+See all [official Python images](https://hub.docker.com/_/python)

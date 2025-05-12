@@ -82,7 +82,7 @@ See the full set of [requirements specifiers here](https://pip.pypa.io/en/stable
 
 ### Dockerizing a Python app
 
-Docker images are defined in a `Dockerfile` with commands the specify a `base` image and any modifications. For example:
+Docker images are defined in a `Dockerfile` that specifies a `base` image (operating system and configurations) and any application-specific modifications. For example:
 
 ```commandline
 FROM python:3.12-slim
@@ -100,3 +100,25 @@ The above commands:
 - defines a command to run when a container is created from the image
 
 See all [official Python images](https://hub.docker.com/_/python)
+
+Docker containers can be started with the `docker run` command, but it's often easier to managing container configurations with a `docker-compose.yml` file. This declarative approach allows developers to specify run-time settings such as 
+- mapping host-computer ports to container ports
+- mapping host directories (volumes) to container directories
+- setting environment variables
+- defining other containers this application depends on 
+
+For example, docker-compose.yml for a basic flask application might look like this:
+
+```commandline
+version: '3'
+services:
+  flask:
+    image: flask_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:5000
+    volumes:
+      - "$PWD/app/:/app"
+```

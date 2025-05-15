@@ -3,7 +3,9 @@
 ### Reading
 
 - Web Development with Django, CH. 1
+- https://docs.djangoproject.com/en/5.2/intro/tutorial01/
 - https://www.w3schools.com/django/index.php
+- https://www.datacamp.com/tutorial/web-development-django
 
 ### Learning Outcomes
 

@@ -4,12 +4,15 @@
 
 - Web Development with Django, CH. 3
 - https://www.w3schools.com/django/django_views.php
+- https://docs.djangoproject.com/en/5.2/intro/tutorial03/
+- https://docs.djangoproject.com/en/5.2/intro/tutorial06/
 
 ### Reference
 - https://www.w3schools.com/django/django_urls.php
 - https://www.w3schools.com/django/django_templates.php
 - https://www.pluralsight.com/guides/introduction-to-django-views
-- https://docs.djangoproject.com/en/4.1/topics/http/views/
+- https://docs.djangoproject.com/en/5.2/#the-view-layer
+- https://docs.djangoproject.com/en/5.2/#the-template-layer
 
 ### Learning Outcomes
 

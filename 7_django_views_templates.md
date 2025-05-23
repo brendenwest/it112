@@ -48,12 +48,8 @@ Views automatically receive the HTTP request as the first input parameter and ca
 
 Class-based views are implemented as Python classes that inherit from Django's generic view classes and have various pre-built properties and methods to simplify view operations.
 
-For example, to render an HTML page without any database interaction:
+We'll cover class-based in depth a bit later.
 
-    from django.views.generic import TemplateView
-    
-    class HomePage(TemplateView): 
-        template_name = 'home_page.html'
 
 ### Django URLs
 
@@ -83,7 +79,17 @@ would pass the integer value after `url-path/` into the view as a variable calle
 
 By default, Django uses the `DjangoTemplates` engine and Django template language to render dynamic HTML content. Django can be configured to use other template engines, such as Jinja2.
 
-Django applications typically have templates in a `templates` folder unless specified otherwise in the `TEMPLATES` configuration of `settings.py`. 
+Django looks for templates in a `templates` folder of each `application` (sub-folder) unless specified otherwise in the `TEMPLATES` configuration of `settings.py`. 
+
+If your templates are in the main application folders, you'll need to tell Django to look there in settings.py, like this:
+
+```commandline
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'mysite/templates')],
+```
+
 
 Django views can `render` a template-based response back to the browser by specifying the template name and `context` variables for use by the template.
 
@@ -107,3 +113,5 @@ Django template language supports control flow logic as well:
             <li>{{ element.title }}</li>
         {% endfor %}
     </ul>
+
+### Static Files

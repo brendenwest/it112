@@ -2,7 +2,7 @@
 
 ### Reading
 
-- Web Development with Django, CH. 3
+- Web Development with Django, CH. 3 & 5
 - https://www.w3schools.com/django/django_views.php
 - https://docs.djangoproject.com/en/5.2/intro/tutorial03/
 - https://docs.djangoproject.com/en/5.2/intro/tutorial06/

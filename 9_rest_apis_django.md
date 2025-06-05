@@ -90,7 +90,7 @@ serializer = StudentSerializer(student)
 serializer.data
 ```
 
-See [more details](https://www.django-rest-framework.org/api-guide/serializers/)
+See more [DRF serializer details](https://www.django-rest-framework.org/api-guide/serializers/)
 
 ### DRF Views & ViewSets
 
@@ -145,6 +145,18 @@ urlpatterns = [
     path('students/<int:pk>/', views.StudentDetail.as_view()),]
 ```
 
+### DRF Permissions
 
+DRF includes a number of `permission` classes that can restrict who has access to a given view.
 
+For example, adding this to the above views file will ensure that only authenticated requests get read-write access, and unauthenticated requests get read-only access.
+
+```python
+from rest_framework import permissions
+
+# add this to each view class
+permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+```
+
+See more (DRF authentication details)[https://www.django-rest-framework.org/api-guide/authentication/].
 

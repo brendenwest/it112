@@ -103,7 +103,34 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from models import Student
 
+class StudentDetail(APIView):
+    """
+    Retrieve or update  a record based on DB id (aka pk) extracted from query 
+    """
+    def get_object(self, pk):
+        try:
+            return Student.objects.get(pk=pk)
+        except Student.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        student = self.get_object(pk)
+        serializer = StudentSerializer(student)
+        return Response(serializer.data)
+        
+    def put(self, request, pk, format=None):
+        student = self.get_object(pk)
+        serializer = StudentSerializer(student, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 class StudentsList(APIView):
+    """
+    retrieve all Student from DB
+    """
     def get(self, request, format=None):
         students = Students.objects.all()
         serializer = StudentSerializer(students, many=True)
@@ -115,7 +142,7 @@ Your `urls.py` needs to account for this class-based view.
 ```python
 urlpatterns = [
     path('students/', views.StudentsList.as_view()),
-]
+    path('students/<int:pk>/', views.StudentDetail.as_view()),]
 ```
 
 

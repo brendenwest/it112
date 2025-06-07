@@ -118,12 +118,22 @@ class StudentDetail(APIView):
         serializer = StudentSerializer(student)
         return Response(serializer.data)
         
+    # update existing db record
     def put(self, request, pk, format=None):
         student = self.get_object(pk)
         serializer = StudentSerializer(student, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        # update existing db record
+    def post(self, request, pk, format=None):
+        student = self.get_object(pk)
+        serializer = StudentSerializer(student, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -143,6 +153,55 @@ Your `urls.py` needs to account for this class-based view.
 urlpatterns = [
     path('students/', views.StudentsList.as_view()),
     path('students/<int:pk>/', views.StudentDetail.as_view()),]
+```
+
+DRF also supports `function-based` views using the `@api_view` decorator:
+
+```python
+    from rest_framework.decorators import api_view
+    from rest_framework.response import Response
+    from models import Student
+
+    @api_view(['GET', 'POST'])
+    def students(request):
+        """
+        Get all students or create a new record
+        """
+        if request.method == 'GET':
+            students = Students.objects.all()
+            serializer = StudentSerializer(students, many=True)
+            return Response(serializer.data)
+        elif request.method == 'POST':
+            serializer = StudentSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @api_view(['GET', 'PUT', 'DELETE'])
+    def student_detail(request, pk):
+        """
+        Retrieve, update or delete a code snippet.
+        """
+        try:
+            student = Student.objects.get(pk=pk)
+        except Student.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+        if request.method == 'GET':
+            serializer = StudentSerializer(Student)
+            return Response(serializer.data)
+    
+        elif request.method == 'POST':
+            serializer = StudentSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        elif request.method == 'DELETE':
+            student.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
 ```
 
 ### DRF Permissions

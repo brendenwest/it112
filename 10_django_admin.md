@@ -8,6 +8,6 @@
 
 - Creating administrator accounts
 - Modifying application data
-- Managing users & permissions
+- Managing users & groups
+- Registering models with Admin
 - Customizing the Admin interface
-

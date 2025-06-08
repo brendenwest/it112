@@ -2,7 +2,12 @@
 
 ### Reading
 
-- Web Development with Django, CH. 4 
+- Web Development with Django, Ch. 4 
+- https://docs.djangoproject.com/en/5.2/intro/tutorial07/
+- https://www.w3schools.com/django/django_admin.php
+
+### Watch
+- https://www.youtube.com/watch?v=4tiSmL4JmS0
 
 ### Learning Outcomes
 
